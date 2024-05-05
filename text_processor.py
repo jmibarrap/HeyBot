@@ -1,4 +1,14 @@
-#libraries
+"""
+This module contains a class for processing text data. The class reads a CSV file containing text data, cleans the text by converting it to lowercase and removing special characters, and translates emojis to English words using the demoji library. The class also translates English de-emoji words to Spanish using the Google Translator API.
+
+Authors:
+- Jose Angel Garcia Gomez
+- Pablo Gonzalez de la Parra
+- Jose Maria Ibarra Perez
+- Ana Martinez Barbosa
+
+"""
+
 import pandas as pd
 import re
 import demoji
