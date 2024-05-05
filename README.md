@@ -34,6 +34,10 @@ HeyBot is a Twitter bot designed to interact with users' tweets, evaluate sentim
 
    - Streamlit implementation that allows prediction monitoring and description.
 
+8. **Training Notebook**
+
+   - Allows training for evaluation with a jupyter notebook, homologous to training scripts used.
+
 **Files:**
 
 - `bot.py`: Main file containing the Twitter bot implementation.
