@@ -1,3 +1,14 @@
+"""
+Trainer module for training a BERT-based sequence classification model.
+
+Authors:
+- Jose Angel Garcia Gomez
+- Pablo Gonzalez de la Parra
+- Jose Maria Ibarra Perez
+- Ana Martinez Barbosa
+
+"""
+
 import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertForSequenceClassification
