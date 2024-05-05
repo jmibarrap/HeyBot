@@ -27,7 +27,12 @@ HeyBot is a Twitter bot designed to interact with users' tweets, evaluate sentim
    - Trains the sentiment analysis model on labeled data and evaluates its performance using classification metrics.
 
 6. **Selenium Scraper:**
+
    - Scrapes tweets from Twitter using Selenium.
+
+7. **Streamlit dashboard**
+
+   - Streamlit implementation that allows prediction monitoring and description.
 
 **Files:**
 
