@@ -33,7 +33,14 @@ class Bot:
     - tweepy_client (tweepy.Client): Client for interacting with the Twitter API.
     """
 
-    TWEET_CONTENTS = {1: "I'm sorry to hear that. Please contact our customer service", 2: "I'm glad you're happy with our service. We're always here to help you."}
+    TWEET_CONTENTS = {
+            1: ["¡Hola! Por favor, nos puedes contactar en el 81 4392 2626 para poder apoyarte a revisar la situación.",
+            "¡Hola! En seguida te envíamos DM con mayor información al respecto. 🙌",
+            "¡Hola, buen día! Por favor, nos puedes escribir al correo de contacto@heybanco.com, desde el correo registrado en tu cuenta para poder apoyarte."],
+            2: ["¡Descubre Hey Banco, tu aliado digital para gestionar tus finanzas! Con nuestra tarjeta virtual, disfruta de compras en línea, meses sin intereses, recompensas y alertas de transacciones. Abre tu cuenta y disfruta de estos beneficios. ¡Haz clic para registrarte! https://quierosercliente.hey.inc",
+                "No busques más. El banco para ti. Descubre Hey Banco, tu aliado digital para gestionar tus finanzas con nuestra tarjeta virtual. Disfruta de compras en línea, meses sin intereses, recompensas y alertas de transacciones. Abre tu cuenta y disfruta de estos beneficios. Haz clic para registrarte: https://quierosercliente.hey.inc/",
+                "Si tu banco actual te decepcionó, estamos aquí para cubrirte. Atención al cliente excepcional en Hey Banco. Descubre nuestro aliado digital para gestionar tus finanzas. Disfruta de compras en línea, meses sin intereses, recompensas y alertas de transacciones. Abre tu cuenta y disfruta de estos beneficios. Haz clic para registrarte: https://quierosercliente.hey.inc"
+                ]}
 
     def __init__(self, model_weight_path="", database_data={}, sleep_time=120):
         """
@@ -130,7 +137,6 @@ class Bot:
                 csv_data = self._read_csv_to_string(os.path.join(tweets_folder_path, file))
                 csv_data = self._clean_csv_data_string(csv_data)    
                 for row in csv_data:
-                    print("Row", row)
                     tweet_id = row[-1]
                     if tweet_id not in self.database_data:
                         timestamp = row[2].split("T")
@@ -168,7 +174,7 @@ class Bot:
         - evaluation (int): Evaluation result.
         - tweet_id (str): ID of the tweet.
         """
-        response = self.TWEET_CONTENTS[evaluation]
+        response = random.choice(self.TWEET_CONTENTS[evaluation])
         try:
             self.tweepy_client.create_tweet(text=response, in_reply_to_tweet_id=tweet_id)
         except Exception as e:
@@ -194,9 +200,10 @@ class Bot:
         """
         Run the Twitter bot to fetch, evaluate, and respond to tweets.
         """
-        self._get_actual_tweets()
-        self._evaluate_tweets()
-        time.sleep(self.sleep_time)
+        while True:
+            self._get_actual_tweets()
+            self._evaluate_tweets()
+            time.sleep(self.sleep_time)
 
 if __name__ == "__main__":
     bot = Bot(model_weight_path="model/heybot_model.pth")
