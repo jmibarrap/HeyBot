@@ -307,3 +307,4 @@ if __name__ == '__main__':
 
     model_trainer = Model(model=model, train_dataloader=train_dataloader, val_dataloader=val_dataloader, optimizer=optimizer)
     model_trainer.train()
+    torch.save(model.state_dict(), 'heybot_model.pth')
