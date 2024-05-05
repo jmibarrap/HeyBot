@@ -29,6 +29,8 @@ with st.sidebar:
     label = st.selectbox('Clase', ['Omisión', 'Atención', 'Oportunidad'])
     metric = st.selectbox('Métrica', metrics)
 
+labeldict_rev = {0: 'Omisión', 1: 'Atención', 2: 'Oportunidad'}
+
 # Filter data for each label
 label = labeldict[label]
 labeldf = df[df['label'] == label]
@@ -91,10 +93,18 @@ with col[0]:
         if i < 2:
             with col_[0]:
                 st.metric(column, labeldf[column].sum())
+                if i == 1:
+                    st.metric('Clasificados en clase ' + labeldict_rev[label], labeldf.shape[0])
+                    st.metric('Proporción', f'%i %%' % (labeldf.shape[0] / df.shape[0] * 100))
         else: 
             with col_[1]:
                 st.metric(column, labeldf[column].sum())
+                if i == 3:
+                    st.metric('Registros', df.shape[0])
+    
+with col[0]:
     st.write(fig_pie)
+    
    
 # Tags for cases of Opportunity
 with col[1]:
