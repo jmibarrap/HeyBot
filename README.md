@@ -83,6 +83,16 @@ Link to the article: [Fine-tuning BERT for Text Classification](https://towardsd
    python bot.py
    ```
 
+## Model performance
+
+	 - Train loss: 0.0306
+	 - Validation Accuracy: 0.4702
+	 - Validation Precision: 0.7406
+	 - Validation Recall: 0.7477
+	 - Validation Specificity: 0.8691
+
+    On 80/20 split, end-to-end fine tuned for 25 epochs with the obtained extended dataset consisting of 1617 entries. 
+
 **Dataset:**
 
 - `dataset_2033.csv`: Example dataset for sentiment analysis training.
