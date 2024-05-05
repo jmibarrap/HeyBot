@@ -40,7 +40,6 @@ HeyBot is a Twitter bot designed to interact with users' tweets, evaluate sentim
 
 9. **Training ready dataset**
 
-10. **Model weights**
 
 **Files:**
 
