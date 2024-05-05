@@ -65,8 +65,17 @@ Link to the article: [Fine-tuning BERT for Text Classification](https://towardsd
    ```
 
 3. Set up environment variables:
-
    - Create a `.env` file and add your Twitter API credentials.
+   - Follow the format shown below:
+      ```
+      TWITTER_USERNAME=
+      TWITTER_PASSWORD=
+      TWITTER_MAIL=
+      TWITTER_API_KEY=
+      TWITTER_API_SECRET=
+      TWITTER_ACCESS_TOKEN=
+      TWITTER_ACCESS_TOKEN_SECRET=
+      ```
    - Ensure you have the necessary environment variables set for Twitter login and API access.
 
 4. Run the bot:
@@ -76,7 +85,7 @@ Link to the article: [Fine-tuning BERT for Text Classification](https://towardsd
 
 **Dataset:**
 
-- `dataset_1279.csv`: Example dataset for sentiment analysis training.
+- `dataset_2033.csv`: Example dataset for sentiment analysis training.
 
 **Pre-trained Model:**
 
