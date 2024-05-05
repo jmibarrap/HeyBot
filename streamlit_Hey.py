@@ -103,6 +103,7 @@ with col[0]:
                     st.metric('Registros', df.shape[0])
     
 with col[0]:
+    st.markdown('## Aparición de otros bancos')
     st.write(fig_pie)
     
    
