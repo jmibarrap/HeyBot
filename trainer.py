@@ -117,7 +117,6 @@ class Model:
         self.optimizer = optimizer
         self.epochs = epochs
 
-    # Classification metrics functions
     def b_tp(self, preds, labels):
         """
         Returns the count of true positives.
